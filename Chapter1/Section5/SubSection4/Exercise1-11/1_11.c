@@ -9,7 +9,7 @@ main()
     nl = nw = nc = 0;
     while ((c = getchar()) != EOF) 
     {
-            ++nc;
+        ++nc;
         if (c == '\n')
             ++nl;
         if (c == ' ' || c == '\n' || c == '\t')
