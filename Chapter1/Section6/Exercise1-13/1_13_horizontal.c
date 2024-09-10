@@ -15,7 +15,7 @@ main()
         c = getchar();
         if(c == ' ' || c == '\t' || c == '\n' || c == EOF)/* c == EOF is used to deal with a word followed by an End of File (EOF) */
         {
-            if(length <= MAX_LENGTH)/* Words longer than MAX_LENGTH are not counted */
+            if(length > 0 && length <= MAX_LENGTH)/* Words longer than MAX_LENGTH are not counted */
             {
                 ++count[length];
                 if(length > maxLength)
