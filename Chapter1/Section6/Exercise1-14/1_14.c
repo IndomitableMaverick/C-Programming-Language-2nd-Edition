@@ -13,9 +13,9 @@ main()
         ++count[c];
     
     printf("Histogram:\n");
-    for(int i = 0; i <= CHAR_SET_SIZE; ++i)
+    for(int i = 0; i < CHAR_SET_SIZE; ++i)
     {
-        printf("%c(%d): ", i, i);
+        printf("%c (%d): ", i, i);
         for(int j = 0; j < count[i]; ++j)
             printf("%c", HISTOGRAM_CHAR);
         printf("\n");
