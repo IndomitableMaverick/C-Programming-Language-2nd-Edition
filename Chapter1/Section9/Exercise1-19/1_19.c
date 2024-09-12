@@ -2,7 +2,7 @@
 #define MAXLINE 1000 /* maximum input line length */
 #define LINE_OK 0
 #define LINE_TOO_LONG 1
-#define LINE_EMPTY 2  
+
 int getline(char s[], int maxline);
 void reverse(char s[]);
 /* Write a function reverse(s) that reverses the character string s. Use it to write a program that reverses its input a line at a time. */
