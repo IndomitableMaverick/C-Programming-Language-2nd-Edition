@@ -5,6 +5,8 @@
 #define STATE2 2
 #define STATE3 3
 #define STATE4 4
+#define STATE5 5
+#define STATE6 6
 /* remove all comments from a C program */
 main()
 {
@@ -20,7 +22,13 @@ main()
                 if(c == '/')
                     state = STATE1;
                 else
+                {
                     putchar(c);
+                    if(c == '\'')
+                        state = STATE5;
+                    else if(c == '"')
+                        state = STATE6;
+                }
                 break;
             case STATE1:
                 if(c == '/')
@@ -31,7 +39,12 @@ main()
                 {
                     putchar('/');
                     putchar(c);
-                    state = STATE0;
+                    if(c == '\'')
+                        state = STATE5;
+                    else if(c == '"')
+                        state = STATE6;
+                    else
+                        state = STATE0;
                 }
                 break;
             case STATE2:
@@ -50,6 +63,16 @@ main()
                     state = STATE0;
                 else if(c != '*')
                     state = STATE3;
+                break;
+            case STATE5:
+                putchar(c);
+                if(c == '\'')
+                    state = STATE0;
+                break;
+            case STATE6:
+                putchar(c);
+                if(c == '"')
+                    state = STATE0;
                 break;
             default:
                 break;
