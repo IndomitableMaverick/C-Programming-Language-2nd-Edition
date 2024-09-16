@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+/*  a loop equivalent to the for loop above without using && or || */
 main()
 {
     int c, i, state = 1, lim = 16;
