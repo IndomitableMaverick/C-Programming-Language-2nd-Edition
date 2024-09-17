@@ -36,7 +36,7 @@ long htoi(char s[])
             char c = tolower(s[i]);
             if(c >= 'a' && c <= 'f')
                 n += c - 'a' + 10;
-            else if (c != 'x' || !(i == 1 && sign == 1 || i == 2 && sign == -1))
+            else if (c != 'x' || !((i == 1 && sign == 1 || i == 2 && sign == -1) && s[i - 1] == '0'))
                 return -1;//invalid input
         }
         ++i;
