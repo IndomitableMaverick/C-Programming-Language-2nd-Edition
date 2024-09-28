@@ -21,7 +21,7 @@ main()
     printf("%s\n", s);
 }
 
-/* itoa: convert the integer n into a base b character representation in the string s. */ 
+/* itob: convert the integer n into a base b character representation in the string s. */ 
 void itob(int n, char s[], int b) 
 { 
     if(b < 2 || b > 36)
