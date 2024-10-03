@@ -97,15 +97,13 @@ int getop(char s[])
     if (!isdigit(c) && c != '.' && c != '+' && c != '-') 
         return c; /* not a number */ 
     i = 0; 
-    s[i++] = c;
     if((c == '+' || c == '-')){
-        if(!(isdigit(c = getch()) || c == '.')){
+        if(!(isdigit(s[++i] = c = getch()) || c == '.')){
             // This block handles the '+' and '-' as operators.
             if (c != EOF) 
-            ungetch(c); 
+                ungetch(c); 
             return s[0];
         }
-        s[i++] = c;
     }
     if (isdigit(c)) /* collect integer part */ 
         while (isdigit(s[++i] = c = getch())) 
