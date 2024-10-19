@@ -188,10 +188,14 @@ int getop(char s[])
         return NUMBER;
     }
     else{
+        if(c == EOF)
+            return EOF;
         while(isalpha(s[++i] = c = getch()) || isdigit(c))
             ;
-        if (c != EOF) 
-            ungetch(c);
+        if (c != EOF){
+            s[strlen(s) - 1] = '\0'; //handle '\n'
+            ungetch(c); 
+        }
         return getCommand(s);
     }
 }
@@ -208,25 +212,25 @@ int getCommand(char s[])
         for(int i = 0; i < strlen(command1); ++i)
             if(command1[i] != s[i])
                 return ERROR;
-        return TOP;
+        return s[strlen(command1)] == '\0' ? TOP : ERROR;
         break;
     case 'd':
         for(int i = 0; i < strlen(command2); ++i)
             if(command2[i] != s[i])
                 return ERROR;
-        return DUPLICATE;
+        return s[strlen(command2)] == '\0' ? DUPLICATE : ERROR;
         break;
     case 's':
         for(int i = 0; i < strlen(command3); ++i)
             if(command3[i] != s[i])
                 return ERROR;
-        return SWAP;
+        return s[strlen(command3)] == '\0' ? SWAP : ERROR;
         break;
     case 'c':
         for(int i = 0; i < strlen(command4); ++i)
             if(command4[i] != s[i])
                 return ERROR;
-        return CLEAR;
+        return s[strlen(command4)] == '\0' ? CLEAR : ERROR;
         break;
     default:
         break;
