@@ -26,7 +26,7 @@ int main()
     while ((type = getop(s)) != EOF) { 
         switch (type) {
         case ERROR:
-            printf("Error\n");
+            printf("error: unknown command %s\n", s); 
             break;
         case TOP:
             printf("\t%.8g\n", top());
