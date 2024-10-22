@@ -464,7 +464,7 @@ void ungetch(int c) /* push character back on input */
         buf[bufp++] = c; 
 }
 
-void ungets(char s[])/* push back an entire string onto the input */
+void ungets(char s[]) /* push back an entire string onto the input */
 {
     int index = 0;
     while(s[index] != '\0')
