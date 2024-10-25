@@ -209,18 +209,17 @@ int getop(char s[])
     while ((s[0] = c = getch()) == ' ' || c == '\t') 
         ; 
     s[1] = '\0'; 
-    if (c == '*' || c == '/' || c == '%' || c == '\n') 
+    if (c == '*' || c == '/' || c == '%' || c == '\n' || c == EOF) 
         return c; /* operator or \n */ 
     i = 0; 
-    if((c == '+' || c == '-')){
+    if((c == '+' || c == '-'))
         if(!(isdigit(s[++i] = c = getch()) || c == '.')){
             // This block handles the '+' and '-' as operators.
             if (c != EOF) 
                 ungetch(c); 
             return s[0];
         }
-    }
-    else if(isdigit(c) || c == '.'){
+    if(isdigit(c) || c == '.'){
         if (isdigit(c)) /* collect integer part */ 
             while (isdigit(s[++i] = c = getch())) 
                 ; 
@@ -233,8 +232,6 @@ int getop(char s[])
         return NUMBER;
     }
     else{
-        if(c == EOF)
-            return EOF;
         while(isalpha(s[++i] = c = getch()) || isdigit(c))
             ;
         if (c != EOF){
