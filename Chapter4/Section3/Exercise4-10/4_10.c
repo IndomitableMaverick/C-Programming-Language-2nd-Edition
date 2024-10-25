@@ -217,18 +217,17 @@ int getop(char s[])
     while ((s[0] = c = line[pos++]) == ' ' || c == '\t') 
         ; 
     s[1] = '\0'; 
-    if (c == '*' || c == '/' || c == '%' || c == '\n') 
+    if (c == '*' || c == '/' || c == '%' || c == '\n' || c == EOF) 
         return c; /* operator or \n */ 
     i = 0; 
-    if((c == '+' || c == '-')){
+    if((c == '+' || c == '-'))
         if(!(isdigit(s[++i] = c = line[pos++]) || c == '.')){
             // This block handles the '+' and '-' as operators.
             if (c != EOF) 
                 --pos;
             return s[0];
         }
-    }
-    else if(isdigit(c) || c == '.'){
+    if(isdigit(c) || c == '.'){
         if (isdigit(c)) /* collect integer part */ 
             while (isdigit(s[++i] = c = line[pos++])) 
                 ; 
