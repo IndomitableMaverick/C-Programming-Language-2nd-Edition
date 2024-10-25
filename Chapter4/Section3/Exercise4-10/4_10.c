@@ -244,10 +244,9 @@ int getop(char s[])
             return EOF;
         while(isalpha(s[++i] = c = line[pos++]) || isdigit(c))
             ;
-        if (c != EOF){
-            s[strlen(s) - 1] = '\0'; //handle '\n'
-            --pos; 
-        }
+        s[i] = '\0'; //handle '\n'
+        if (c != EOF)
+            --pos;
         return getCommand(s);
     }
 }

@@ -230,10 +230,9 @@ int getop(char s[])
     else{
         while(isalpha(s[++i] = c = getch()) || isdigit(c))
             ;
-        if (c != EOF){
-            s[strlen(s) - 1] = '\0'; //handle '\n'
+        s[i] = '\0'; //handle '\n'
+        if (c != EOF)
             ungetch(c); 
-        }
         return getCommand(s);
     }
 }
