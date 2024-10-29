@@ -34,8 +34,8 @@ double atof(char s[])
         expSign = (s[++i] == '-') ? -1 : 1;
         if (s[i] == '+' || s[i] == '-') 
             i++; 
-        for (expVal = 0.0; isdigit(s[i]); i++) 
-            expVal = 10.0 * expVal + (s[i] - '0');
+        for (expVal = 0; isdigit(s[i]); i++) 
+            expVal = 10 * expVal + (s[i] - '0');
         if(expSign == 1)
             while(expVal-- >= 0)
                 power /= 10;
