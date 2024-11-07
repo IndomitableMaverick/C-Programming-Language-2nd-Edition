@@ -37,10 +37,10 @@ double atof(char s[])
         for (expVal = 0; isdigit(s[i]); i++) 
             expVal = 10 * expVal + (s[i] - '0');
         if(expSign == 1)
-            while(expVal-- >= 0)
+            while(--expVal >= 0)
                 power /= 10;
         else if(expSign == -1)
-            while(expVal-- >= 0)
+            while(--expVal >= 0)
                 power *= 10;
     }
     return sign * val / power; 
