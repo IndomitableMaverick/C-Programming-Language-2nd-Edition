@@ -44,7 +44,7 @@ int getfloat(float *pn)
             ungetch('.');
             if(tempSign != -1)
                 ungetch(tempSign);
-            return flag;
+            return 0;
         }
     if(flag == NUMBER_NOT_FOUND)
         *pn = 0.0;
