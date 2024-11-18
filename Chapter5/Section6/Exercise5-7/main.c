@@ -52,10 +52,11 @@ char *alloc(int);
 //     while ((len = getline(line, MAXLEN)) > 0) 
 //         if (nlines >= maxlines || (p = alloc(len)) == NULL) 
 //             return -1; 
-//         else {line[len-1] = '\0'; /* delete newline */ 
-//         strcpy(p, line); 
-//         lineptr[nlines++] = p; 
-//     } 
+//         else {
+//             line[len-1] = '\0'; /* delete newline */ 
+//             strcpy(p, line); 
+//             lineptr[nlines++] = p; 
+//         } 
 //     return nlines; 
 // } 
 
@@ -69,11 +70,12 @@ int readlines(char *lineptr[], int maxlines, char buf[], int bufsize)
     while ((len = getline(line, MAXLEN)) > 0) 
         if (nlines >= maxlines || p + len > buffer + bufsize) 
             return -1; 
-        else {line[len-1] = '\0'; /* delete newline */ 
-        strcpy(p, line); 
-        lineptr[nlines++] = p; 
-        p += len;
-    } 
+        else {
+            line[len-1] = '\0'; /* delete newline */ 
+            strcpy(p, line); 
+            lineptr[nlines++] = p; 
+            p += len;
+        } 
     return nlines; 
 } 
 
